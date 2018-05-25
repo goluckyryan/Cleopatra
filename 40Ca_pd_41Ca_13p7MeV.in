@@ -1,0 +1,32 @@
+REACTION: 40CA(D P)41CA(7/2- 0.00) ELAB = 13.7
+$Q = 6.141
+PARAMETERSET dpsb r0target 
+
+PROJECTILE
+wavefunction AV18
+R0 = 1 A = 0.5 L = 0
+;
+
+TARGET
+NODES = 0 L = 3 J=7/2
+R0 = 1.18 A = 0.7 
+VSO = 6
+RC0 = 1.25
+;
+
+INCOMING
+V = -97.4 R0 = 1.112 A = .875 
+VSI = 70 RSI0 = 1.562 ASI = 0.477
+RC0 = 1.40
+;
+
+OUTGOING 
+V = -49.47 R0 = 1.18 A = .700 VSO = 6
+VSI = 19.8 RSI0 = 1.252 ASI = 0.750
+RC0 = 1.25
+;
+AngleMin = 0 AngleMax = 180 AngleStep = 5
+;
+Writens CrossSec
+RETURN
+

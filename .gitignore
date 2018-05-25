@@ -1,0 +1,9 @@
+*.root
+*.pdf
+*.d
+*.so
+*.out
+*.pyc
+
+ptolemy
+!ptolemy_manual.pdf
