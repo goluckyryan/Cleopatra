@@ -31,7 +31,7 @@ vsi = 30.185 rsi0 = 1.207 asi = 0.736
 vso = 3 rso0 = 1.269 aso = 0.9
 vsoi = 0 rsoi0 = 0 asoi = 0 rc0 = 1.25
 ;
-anglemin=0 anglemax=180 anglestep=1.0
+anglemin=19 anglemax=50 anglestep=0.5
 ;
 $============================================ Ex=0.000(d:DCV,3He:LLC)
 reset
@@ -65,7 +65,7 @@ vsi = 21.366 rsi0 = 1.204 asi = 0.791
 vso = 2.074 rso0 = 0.745 aso = 0.896
 vsoi = -1.159 rsoi0 = 0.745 asoi = 0.896 rc0 = 1.289
 ;
-anglemin=0 anglemax=180 anglestep=1.0
+anglemin=19 anglemax=50 anglestep=0.5
 ;
 $============================================ Ex=0.000(d:HSS,3He:XGHS)
 reset
@@ -99,7 +99,7 @@ vsi = 30.185 rsi0 = 1.207 asi = 0.736
 vso = 3 rso0 = 1.269 aso = 0.9
 vsoi = 0 rsoi0 = 0 asoi = 0 rc0 = 1.25
 ;
-anglemin=0 anglemax=180 anglestep=1.0
+anglemin=19 anglemax=50 anglestep=0.5
 ;
 $============================================ Ex=0.740(d:DCV,3He:XGHS)
 reset
@@ -132,7 +132,7 @@ vsi = 30.185 rsi0 = 1.207 asi = 0.736
 vso = 3 rso0 = 1.269 aso = 0.9
 vsoi = 0 rsoi0 = 0 asoi = 0 rc0 = 1.25
 ;
-anglemin=0 anglemax=180 anglestep=1.0
+anglemin=19 anglemax=50 anglestep=0.5
 ;
 $============================================ Ex=0.740(d:DCV,3He:LLC)
 reset
@@ -165,7 +165,7 @@ vsi = 21.366 rsi0 = 1.204 asi = 0.791
 vso = 2.074 rso0 = 0.745 aso = 0.896
 vsoi = -1.159 rsoi0 = 0.745 asoi = 0.896 rc0 = 1.289
 ;
-anglemin=0 anglemax=180 anglestep=1.0
+anglemin=19 anglemax=50 anglestep=0.5
 ;
 $============================================ Ex=0.740(d:HSS,3He:XGHS)
 reset
@@ -198,7 +198,7 @@ vsi = 30.185 rsi0 = 1.207 asi = 0.736
 vso = 3 rso0 = 1.269 aso = 0.9
 vsoi = 0 rsoi0 = 0 asoi = 0 rc0 = 1.25
 ;
-anglemin=0 anglemax=180 anglestep=1.0
+anglemin=19 anglemax=50 anglestep=0.5
 ;
 $============================================ Ex=4.780(d:DCV,3He:XGHS)
 reset
@@ -231,7 +231,7 @@ vsi = 30.185 rsi0 = 1.207 asi = 0.736
 vso = 3 rso0 = 1.269 aso = 0.9
 vsoi = 0 rsoi0 = 0 asoi = 0 rc0 = 1.25
 ;
-anglemin=0 anglemax=180 anglestep=1.0
+anglemin=19 anglemax=50 anglestep=0.5
 ;
 $============================================ Ex=4.780(d:DCV,3He:LLC)
 reset
@@ -264,7 +264,7 @@ vsi = 21.366 rsi0 = 1.204 asi = 0.791
 vso = 2.074 rso0 = 0.745 aso = 0.896
 vsoi = -1.159 rsoi0 = 0.745 asoi = 0.896 rc0 = 1.289
 ;
-anglemin=0 anglemax=180 anglestep=1.0
+anglemin=19 anglemax=50 anglestep=0.5
 ;
 $============================================ Ex=4.780(d:HSS,3He:XGHS)
 reset
@@ -297,7 +297,7 @@ vsi = 30.185 rsi0 = 1.207 asi = 0.736
 vso = 3 rso0 = 1.269 aso = 0.9
 vsoi = 0 rsoi0 = 0 asoi = 0 rc0 = 1.25
 ;
-anglemin=0 anglemax=180 anglestep=1.0
+anglemin=19 anglemax=50 anglestep=0.5
 ;
 $============================================ Ex=5.833(d:DCV,3He:XGHS)
 reset
@@ -330,7 +330,7 @@ vsi = 30.185 rsi0 = 1.207 asi = 0.736
 vso = 3 rso0 = 1.269 aso = 0.9
 vsoi = 0 rsoi0 = 0 asoi = 0 rc0 = 1.25
 ;
-anglemin=0 anglemax=180 anglestep=1.0
+anglemin=19 anglemax=50 anglestep=0.5
 ;
 $============================================ Ex=5.833(d:DCV,3He:LLC)
 reset
@@ -363,7 +363,7 @@ vsi = 21.366 rsi0 = 1.204 asi = 0.791
 vso = 2.074 rso0 = 0.745 aso = 0.896
 vsoi = -1.159 rsoi0 = 0.745 asoi = 0.896 rc0 = 1.289
 ;
-anglemin=0 anglemax=180 anglestep=1.0
+anglemin=19 anglemax=50 anglestep=0.5
 ;
 $============================================ Ex=5.833(d:HSS,3He:XGHS)
 reset
@@ -396,7 +396,7 @@ vsi = 30.185 rsi0 = 1.207 asi = 0.736
 vso = 3 rso0 = 1.269 aso = 0.9
 vsoi = 0 rsoi0 = 0 asoi = 0 rc0 = 1.25
 ;
-anglemin=0 anglemax=180 anglestep=1.0
+anglemin=19 anglemax=50 anglestep=0.5
 ;
 $============================================ Ex=6.358(d:DCV,3He:XGHS)
 reset
@@ -429,7 +429,7 @@ vsi = 30.185 rsi0 = 1.207 asi = 0.736
 vso = 3 rso0 = 1.269 aso = 0.9
 vsoi = 0 rsoi0 = 0 asoi = 0 rc0 = 1.25
 ;
-anglemin=0 anglemax=180 anglestep=1.0
+anglemin=19 anglemax=50 anglestep=0.5
 ;
 $============================================ Ex=6.358(d:DCV,3He:LLC)
 reset
@@ -462,7 +462,7 @@ vsi = 21.366 rsi0 = 1.204 asi = 0.791
 vso = 2.074 rso0 = 0.745 aso = 0.896
 vsoi = -1.159 rsoi0 = 0.745 asoi = 0.896 rc0 = 1.289
 ;
-anglemin=0 anglemax=180 anglestep=1.0
+anglemin=19 anglemax=50 anglestep=0.5
 ;
 $============================================ Ex=6.358(d:HSS,3He:XGHS)
 reset
@@ -495,7 +495,7 @@ vsi = 30.185 rsi0 = 1.207 asi = 0.736
 vso = 3 rso0 = 1.269 aso = 0.9
 vsoi = 0 rsoi0 = 0 asoi = 0 rc0 = 1.25
 ;
-anglemin=0 anglemax=180 anglestep=1.0
+anglemin=19 anglemax=50 anglestep=0.5
 ;
 $============================================ Ex=6.358(d:DCV,3He:XGHS)
 reset
@@ -528,7 +528,7 @@ vsi = 30.185 rsi0 = 1.207 asi = 0.736
 vso = 3 rso0 = 1.269 aso = 0.9
 vsoi = 0 rsoi0 = 0 asoi = 0 rc0 = 1.25
 ;
-anglemin=0 anglemax=180 anglestep=1.0
+anglemin=19 anglemax=50 anglestep=0.5
 ;
 $============================================ Ex=6.358(d:DCV,3He:LLC)
 reset
@@ -561,7 +561,7 @@ vsi = 21.366 rsi0 = 1.204 asi = 0.791
 vso = 2.074 rso0 = 0.745 aso = 0.896
 vsoi = -1.159 rsoi0 = 0.745 asoi = 0.896 rc0 = 1.289
 ;
-anglemin=0 anglemax=180 anglestep=1.0
+anglemin=19 anglemax=50 anglestep=0.5
 ;
 $============================================ Ex=6.358(d:HSS,3He:XGHS)
 reset
@@ -594,7 +594,7 @@ vsi = 30.185 rsi0 = 1.207 asi = 0.736
 vso = 3 rso0 = 1.269 aso = 0.9
 vsoi = 0 rsoi0 = 0 asoi = 0 rc0 = 1.25
 ;
-anglemin=0 anglemax=180 anglestep=1.0
+anglemin=19 anglemax=50 anglestep=0.5
 ;
 $============================================ Ex=6.358(d:DCV,3He:XGHS)
 reset
@@ -628,7 +628,7 @@ vsi = 30.185 rsi0 = 1.207 asi = 0.736
 vso = 3 rso0 = 1.269 aso = 0.9
 vsoi = 0 rsoi0 = 0 asoi = 0 rc0 = 1.25
 ;
-anglemin=0 anglemax=180 anglestep=1.0
+anglemin=19 anglemax=50 anglestep=0.5
 ;
 $============================================ Ex=6.358(d:DCV,3He:LLC)
 reset
@@ -662,7 +662,7 @@ vsi = 21.366 rsi0 = 1.204 asi = 0.791
 vso = 2.074 rso0 = 0.745 aso = 0.896
 vsoi = -1.159 rsoi0 = 0.745 asoi = 0.896 rc0 = 1.289
 ;
-anglemin=0 anglemax=180 anglestep=1.0
+anglemin=19 anglemax=50 anglestep=0.5
 ;
 $============================================ Ex=6.358(d:HSS,3He:XGHS)
 reset
@@ -696,6 +696,6 @@ vsi = 30.185 rsi0 = 1.207 asi = 0.736
 vso = 3 rso0 = 1.269 aso = 0.9
 vsoi = 0 rsoi0 = 0 asoi = 0 rc0 = 1.25
 ;
-anglemin=0 anglemax=180 anglestep=1.0
+anglemin=19 anglemax=50 anglestep=0.5
 ;
 end
