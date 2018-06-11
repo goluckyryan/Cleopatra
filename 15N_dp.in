@@ -1,7 +1,7 @@
 $=== OP fixed at ELAB = 5
 $============================================ Ex=0.000(d5/2)(d:DCV,p:Vamer)
 reset
-REACTION: 15N(d,p)16N(2- 0.000) ELAB=40
+REACTION: 15N(d,p)16N(2- 0.000) ELAB=60
 PARAMETERSET dpsb r0target 
 $lstep=1 lmin=0 lmax=30 maxlextrap=0 asymptopia=50
 
@@ -33,7 +33,7 @@ anglemin=0 anglemax=180 anglestep=1.0
 ;
 $============================================ Ex=0.000(d5/2)(d:DCV,p:KD)
 reset
-REACTION: 15N(d,p)16N(2- 0.000) ELAB=40
+REACTION: 15N(d,p)16N(2- 0.000) ELAB=60
 PARAMETERSET dpsb r0target 
 $lstep=1 lmin=0 lmax=30 maxlextrap=0 asymptopia=50
 
@@ -65,7 +65,7 @@ anglemin=0 anglemax=180 anglestep=1.0
 ;
 $============================================ Ex=0.000(d5/2)(d:HSS,p:KD)
 reset
-REACTION: 15N(d,p)16N(2- 0.000) ELAB=40
+REACTION: 15N(d,p)16N(2- 0.000) ELAB=60
 PARAMETERSET dpsb r0target 
 $lstep=1 lmin=0 lmax=30 maxlextrap=0 asymptopia=50
 
@@ -97,7 +97,7 @@ anglemin=0 anglemax=180 anglestep=1.0
 ;
 $============================================ Ex=0.120(s1/2)(d:DCV,p:Vamer)
 reset
-REACTION: 15N(d,p)16N(0- 0.120) ELAB=40
+REACTION: 15N(d,p)16N(0- 0.120) ELAB=60
 PARAMETERSET dpsb r0target 
 $lstep=1 lmin=0 lmax=30 maxlextrap=0 asymptopia=50
 
@@ -129,7 +129,7 @@ anglemin=0 anglemax=180 anglestep=1.0
 ;
 $============================================ Ex=0.120(s1/2)(d:DCV,p:KD)
 reset
-REACTION: 15N(d,p)16N(0- 0.120) ELAB=40
+REACTION: 15N(d,p)16N(0- 0.120) ELAB=60
 PARAMETERSET dpsb r0target 
 $lstep=1 lmin=0 lmax=30 maxlextrap=0 asymptopia=50
 
@@ -161,7 +161,7 @@ anglemin=0 anglemax=180 anglestep=1.0
 ;
 $============================================ Ex=0.120(s1/2)(d:HSS,p:KD)
 reset
-REACTION: 15N(d,p)16N(0- 0.120) ELAB=40
+REACTION: 15N(d,p)16N(0- 0.120) ELAB=60
 PARAMETERSET dpsb r0target 
 $lstep=1 lmin=0 lmax=30 maxlextrap=0 asymptopia=50
 
@@ -193,7 +193,7 @@ anglemin=0 anglemax=180 anglestep=1.0
 ;
 $============================================ Ex=0.298(d5/2)(d:DCV,p:Vamer)
 reset
-REACTION: 15N(d,p)16N(3- 0.298) ELAB=40
+REACTION: 15N(d,p)16N(3- 0.298) ELAB=60
 PARAMETERSET dpsb r0target 
 $lstep=1 lmin=0 lmax=30 maxlextrap=0 asymptopia=50
 
@@ -225,7 +225,7 @@ anglemin=0 anglemax=180 anglestep=1.0
 ;
 $============================================ Ex=0.298(d5/2)(d:DCV,p:KD)
 reset
-REACTION: 15N(d,p)16N(3- 0.298) ELAB=40
+REACTION: 15N(d,p)16N(3- 0.298) ELAB=60
 PARAMETERSET dpsb r0target 
 $lstep=1 lmin=0 lmax=30 maxlextrap=0 asymptopia=50
 
@@ -257,7 +257,7 @@ anglemin=0 anglemax=180 anglestep=1.0
 ;
 $============================================ Ex=0.298(d5/2)(d:HSS,p:KD)
 reset
-REACTION: 15N(d,p)16N(3- 0.298) ELAB=40
+REACTION: 15N(d,p)16N(3- 0.298) ELAB=60
 PARAMETERSET dpsb r0target 
 $lstep=1 lmin=0 lmax=30 maxlextrap=0 asymptopia=50
 
@@ -289,7 +289,7 @@ anglemin=0 anglemax=180 anglestep=1.0
 ;
 $============================================ Ex=0.397(s1/2)(d:DCV,p:Vamer)
 reset
-REACTION: 15N(d,p)16N(1- 0.397) ELAB=40
+REACTION: 15N(d,p)16N(1- 0.397) ELAB=60
 PARAMETERSET dpsb r0target 
 $lstep=1 lmin=0 lmax=30 maxlextrap=0 asymptopia=50
 
@@ -321,7 +321,7 @@ anglemin=0 anglemax=180 anglestep=1.0
 ;
 $============================================ Ex=0.397(s1/2)(d:DCV,p:KD)
 reset
-REACTION: 15N(d,p)16N(1- 0.397) ELAB=40
+REACTION: 15N(d,p)16N(1- 0.397) ELAB=60
 PARAMETERSET dpsb r0target 
 $lstep=1 lmin=0 lmax=30 maxlextrap=0 asymptopia=50
 
@@ -353,7 +353,7 @@ anglemin=0 anglemax=180 anglestep=1.0
 ;
 $============================================ Ex=0.397(s1/2)(d:HSS,p:KD)
 reset
-REACTION: 15N(d,p)16N(1- 0.397) ELAB=40
+REACTION: 15N(d,p)16N(1- 0.397) ELAB=60
 PARAMETERSET dpsb r0target 
 $lstep=1 lmin=0 lmax=30 maxlextrap=0 asymptopia=50
 
