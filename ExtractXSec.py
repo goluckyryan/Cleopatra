@@ -34,6 +34,8 @@ saveFileFirstLine.append("angle")
 dataMatrix = []
 angle = []
 Ex = []
+totalXsec = []
+totalXsec.append("Xsec_total") #from 0 to 180 degree theta_CM
 
 count = 0
 reactionNum = 0
@@ -93,7 +95,10 @@ for line in fopen.readlines():
             #print( count , Size)
             count += 1
             if count == Size : dataMatrix.append(tempData)
-         
+   
+   posTotalXsec = line.find("0TOTAL:")
+   if( posTotalXsec >= 0 ):
+      totalXsec.append(float(line[posTotalXsec + 7 : posTotalXsec + 30]))
                
 fopen.close()
 
@@ -134,10 +139,10 @@ for j in range(0, reactionNum):
    for i in range(0, Size):
       xsecTemp += dataMatrix[j][i] * math.sin( (angle[i]) * deg2rad ) * dTheta * phi
    Xsec.append(xsecTemp)
-   print("%30s : %6.2f mb" % (saveFileFirstLine[j+1], xsecTemp) )
+   print("%30s : %8.5f mb | From 0-180 deg : %8.5f mb " % (saveFileFirstLine[j+1], xsecTemp, totalXsec[j+1]) )
    
    
-print("======================")
+print("====================== average :")
 for i in range(0, len(Xsec)/3) :
    xs1 = (Xsec[3*i] + Xsec[3*i+1] + Xsec[3*i+1])/3.
    print("%s : %f "% ( saveFileFirstLine[3*i+1][0:8], xs1))
