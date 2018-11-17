@@ -1,0 +1,79 @@
+$============================================ Ex=0.000,HSS
+reset
+CHANNEL  d + 208Pb
+ELAB = 22
+$
+v = 85.774 r0 = 1.174 a = 0.809
+vi = 3.73 ri0 = 1.563 ai = 0.967
+vsi = 10.041 rsi0 = 1.328 asi = 0.732
+vso = 3.703 rso0 = 1.234 aso = 0.813
+vsoi = -0.206 rsoi0 = 1.234 asoi = 0.813 rc0 = 1.698
+ELASTIC SCATTERING
+anglemin=5 anglemax=180 anglestep=1
+;
+$============================================ Ex=0.000,AC
+reset
+CHANNEL  d + 208Pb
+ELAB = 22
+$
+v = 95.313 r0 = 1.151 a = 0.794
+vi = 2.472 ri0 = 1.322 ai = 0.263
+vsi = 10.157 rsi0 = 1.36 asi = 0.898
+vso = 3.557 rso0 = 0.972 aso = 1.011
+vsoi = 0 rsoi0 = 0 asoi = 0 rc0 = 1.303
+ELASTIC SCATTERING
+anglemin=5 anglemax=180 anglestep=1
+;
+$============================================ Ex=0.000,Boj
+reset
+CHANNEL  d + 208Pb
+ELAB = 22
+$
+v = 95.841 r0 = 1.18 a = 0.843
+vi = 0 ri0 = 1.27 ai = 0.892
+vsi = 13.962 rsi0 = 1.27 asi = 0.892
+vso = 6 rso0 = 1.005 aso = 1.005
+vsoi = 0 rsoi0 = 0 asoi = 0 rc0 = 1.3
+ELASTIC SCATTERING
+anglemin=5 anglemax=180 anglestep=1
+;
+$============================================ Ex=0.000,DCV
+reset
+CHANNEL  d + 208Pb
+ELAB = 22
+$
+v = 94.959 r0 = 1.17 a = 0.746
+vi = 0.603 ri0 = 1.325 ai = 0.905
+vsi = 12.169 rsi0 = 1.325 asi = 0.905
+vso = 6.692 rso0 = 1.07 aso = 0.66
+vsoi = 0 rsoi0 = 0 asoi = 0 rc0 = 1.3
+ELASTIC SCATTERING
+anglemin=5 anglemax=180 anglestep=1
+;
+$============================================ Ex=0.000,LH
+reset
+CHANNEL  d + 208Pb
+ELAB = 22
+$
+v = 121.577 r0 = 1.05 a = 0.86
+vi = 0 ri0 = 0 ai = 0
+vsi = 6.21 rsi0 = 1.43 asi = 0.956
+vso = 7 rso0 = 0.75 aso = 0.5
+vsoi = 0 rsoi0 = 0 asoi = 0 rc0 = 1.3
+ELASTIC SCATTERING
+anglemin=5 anglemax=180 anglestep=1
+;
+$============================================ Ex=0.000,PP
+reset
+CHANNEL  d + 208Pb
+ELAB = 22
+$
+v = 103.839 r0 = 1.15 a = 0.81
+vi = 0 ri0 = 0 ai = 0
+vsi = 19.68 rsi0 = 1.34 asi = 0.68
+vso = 0 rso0 = 0 aso = 0
+vsoi = 0 rsoi0 = 0 asoi = 0 rc0 = 1.15
+ELASTIC SCATTERING
+anglemin=5 anglemax=180 anglestep=1
+;
+end $################################################################### end

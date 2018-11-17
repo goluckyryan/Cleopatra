@@ -1,5 +1,10 @@
 #!/usr/bin/python
 
+import sys
+
+if sys.version_info[0] >= 3:
+   raise Exception("Python 2 is require to run the PyROOT")
+
 import argparse
 import math
 
@@ -27,7 +32,7 @@ print(" saving X-sec into : ", saveFileName)
 
 fopen = open(fileName, "r");
 
-startExtract = False
+startExtract = 0 # 0 = false, 1 = for (d,p), 2 = for (d,d)
 
 saveFileFirstLine = []
 saveFileFirstLine.append("angle") 
@@ -74,16 +79,37 @@ for line in fopen.readlines():
       Size = int((angleMax - angleMin)/angleStep)
       tempData = []
       #if reactionNum == 1: print(" getting angle setting : ", angleMin , angleMax, angleStep)
+      
+   if startExtract == 0 and line == "0    ANGLE          SIGMA/             SIGMA              RUTHERFORD         % PER    % PER" :
+      startExtract = 2
+      #print("-------- start extraction for (d,d).")
+
+   if startExtract == 2 and line == "0  C.M.       iT11       T20       T21       T22" :
+      startExtract = 0
+      #print("-------- end of extraction for (d,d).")
+
+   if startExtract == 2 :
+      #print(" %s " %(line))
+      if is_number(line[:7]) == True :
+         dataStr = line[:40]
+         data = dataStr.split()
+         #print(data)
+         if count <= Size and len(data) == 4 :
+             if reactionNum == 1: angle.append(float(data[0]))
+             tempData.append(float(data[2])) # 2 is sigma/Ruth, 3 is sigma
+             count += 1
+             if count == Size : dataMatrix.append(tempData)
  
-   if startExtract == False and line == "0  C.M.  REACTION     REACTION   LOW L  HIGH L   % FROM" :
-      startExtract = True
+
+   if startExtract == 0 and line == "0  C.M.  REACTION     REACTION   LOW L  HIGH L   % FROM" :
+      startExtract = 1
       #print("---------------start extraction.")
       
-   if startExtract -- True and line == "0 JP  JT  LX MX      TOTAL      PERCENT     (VALUES FOR M > 0 NOT DOUBLED.)":
-      startExtract = False
+   if startExtract == 1 and line == "0 JP  JT  LX MX      TOTAL      PERCENT     (VALUES FOR M > 0 NOT DOUBLED.)":
+      startExtract = 0
       #print("---------------end of extraction.")
       
-   if startExtract == True :
+   if startExtract == 1 :
       #print(" %s " %(line) )
       #get angle and Xsec
       if is_number(line[:5]) == True :  
@@ -99,6 +125,10 @@ for line in fopen.readlines():
    posTotalXsec = line.find("0TOTAL:")
    if( posTotalXsec >= 0 ):
       totalXsec.append(float(line[posTotalXsec + 7 : posTotalXsec + 30]))
+
+   posTotalXsec = line.find("0TOTAL REACTION CROSS SECTION =")
+   if( posTotalXsec >= 0 ):
+      totalXsec.append(float(line[posTotalXsec + 31 : posTotalXsec +  45]))
                
 fopen.close()
 
@@ -107,14 +137,20 @@ fopen.close()
 print("==============================")
 print(" number of lines read  : ", lineNum)
 print(" getting angle setting : ", angleMin , angleMax, angleStep)
-print(" number of Angles      : ", Size )
+print(" number of Angles      : ", Size, "(", count, ")" )
 print(" number of reactions   : ", reactionNum)
+
+if (count == 0) : 
+   print("=========== no data extracted. exit.")
+   exit();
 
 #====== save dataMatrix
 fsave = open(saveFileName, "w");
 
 for x in saveFileFirstLine :
    fsave.write("%17s\t" % x)
+
+print("==== saved : ", saveFileName)
    
 fsave.write("\n")
 
@@ -125,6 +161,26 @@ for i in range(0, Size):
    fsave.write("\n")
 
 fsave.close()
+
+#====== save into TGraph into root
+print("===== save into TGraph in to root");
+
+from ROOT import gROOT, gStyle, TGraph, TFile
+
+gROOT.Reset();
+
+rootFileName = fileName + ".root"
+f0 = TFile(rootFileName, "RECREATE")
+
+for j in range(0, reactionNum):
+   gr = TGraph()
+   gr.Clear()
+   gr.SetName(saveFileFirstLine[j+1])
+   for i in range(0, Size):
+      gr.SetPoint(i, angle[i], dataMatrix[j][i])
+   gr.Write()
+
+
 
 #========= Calculate total Xsec
 print("======================")
@@ -141,8 +197,8 @@ for j in range(0, reactionNum):
    Xsec.append(xsecTemp)
    print("%30s : %8.5f mb | From 0-180 deg : %8.5f mb " % (saveFileFirstLine[j+1], xsecTemp, totalXsec[j+1]) )
    
-   
-print("====================== average :")
-for i in range(0, len(Xsec)/3) :
-   xs1 = (Xsec[3*i] + Xsec[3*i+1] + Xsec[3*i+1])/3.
-   print("%s : %f "% ( saveFileFirstLine[3*i+1][0:8], xs1))
+#if ( len(Xsec) == 3 ) : 
+#   print("====================== average :")
+#   for i in range(0, len(Xsec)/3) :
+#      xs1 = (Xsec[3*i] + Xsec[3*i+1] + Xsec[3*i+1])/3.
+#      print("%s : %f "% ( saveFileFirstLine[3*i+1][0:8], xs1))
