@@ -165,11 +165,13 @@ fsave.close()
 #====== save into TGraph into root
 print("===== save into TGraph in to root");
 
-from ROOT import gROOT, gStyle, TGraph, TFile
+from ROOT import gROOT, gStyle, TGraph, TFile, TObjArray
 gROOT.Reset();
 
 rootFileName = fileName + ".root"
 f0 = TFile(rootFileName, "RECREATE")
+
+gList = TObjArray()
 
 for j in range(0, reactionNum):
    gr = TGraph()
@@ -178,8 +180,9 @@ for j in range(0, reactionNum):
    for i in range(0, Size):
       gr.SetPoint(i, angle[i], dataMatrix[j][i])
    name = "gr" + str(j)
-   gr.Write(name)
-
+   gList->Add(gr);
+   
+gList->Write("gList", TObject::kSingleKey);
 f0.Write()
 
 #========= Calculate total Xsec
