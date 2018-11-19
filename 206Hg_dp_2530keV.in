@@ -1,6 +1,6 @@
-$============================================ Ex=2.332(1g9/2)AK
+$============================================ Ex=2530(1g9/2)AK
 reset
-REACTION: 206Hg(d,p)207Hg(9/2+ 2.332) ELAB=14.8
+REACTION: 206Hg(d,p)207Hg(9/2+ 2530) ELAB=14.8
 PARAMETERSET dpsb r0target 
 $lstep=1 lmin=0 lmax=30 maxlextrap=0 asymptopia=50
 
@@ -31,9 +31,9 @@ vsoi = -0.045 rsoi0 = 1.076 asoi = 0.59 rc0 = 1
 ;
 anglemin=0 anglemax=50 anglestep=0.5
 ;
-$============================================ Ex=2.332(3s1/2)AK
+$============================================ Ex=2530(3s1/2)AK
 reset
-REACTION: 206Hg(d,p)207Hg(1/2+ 2.332) ELAB=14.8
+REACTION: 206Hg(d,p)207Hg(1/2+ 2530) ELAB=14.8
 PARAMETERSET dpsb r0target 
 $lstep=1 lmin=0 lmax=30 maxlextrap=0 asymptopia=50
 
@@ -64,9 +64,9 @@ vsoi = -0.045 rsoi0 = 1.076 asoi = 0.59 rc0 = 1
 ;
 anglemin=0 anglemax=50 anglestep=0.5
 ;
-$============================================ Ex=2.332(2d5/2)AK
+$============================================ Ex=2530(2d5/2)AK
 reset
-REACTION: 206Hg(d,p)207Hg(5/2+ 2.332) ELAB=14.8
+REACTION: 206Hg(d,p)207Hg(5/2+ 2530) ELAB=14.8
 PARAMETERSET dpsb r0target 
 $lstep=1 lmin=0 lmax=30 maxlextrap=0 asymptopia=50
 
