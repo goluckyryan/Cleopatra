@@ -1,0 +1,25 @@
+#========= Input for Cleopatra
+#===== # for comment line, must be at the beginning of line
+#===== the potential contain two words
+# one for incoming
+# one for outgoing
+#===== Potenital abberation
+#== deuteron
+# A = An and Cai, deuteron
+# H = HSS
+#
+#
+#
+#
+#== proton
+#
+#
+#
+#
+206Hg(d,p)207Hg    10MeV/u   AK
+206Hg(d,a)207Hg    10MeV/u   AK
+20Hg(d,d)27Hg    20MeV/u   PG
+
+
+
+
