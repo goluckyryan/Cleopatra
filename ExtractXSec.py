@@ -180,9 +180,9 @@ for j in range(0, reactionNum):
    for i in range(0, Size):
       gr.SetPoint(i, angle[i], dataMatrix[j][i])
    name = "gr" + str(j)
-   gList->Add(gr);
+   gList.Add(gr);
    
-gList->Write("gList", TObject::kSingleKey);
+gList.Write("gList", 1);
 f0.Write()
 
 #========= Calculate total Xsec
