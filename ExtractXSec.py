@@ -166,7 +166,6 @@ fsave.close()
 print("===== save into TGraph in to root");
 
 from ROOT import gROOT, gStyle, TGraph, TFile
-
 gROOT.Reset();
 
 rootFileName = fileName + ".root"
@@ -178,9 +177,10 @@ for j in range(0, reactionNum):
    gr.SetName(saveFileFirstLine[j+1])
    for i in range(0, Size):
       gr.SetPoint(i, angle[i], dataMatrix[j][i])
-   gr.Write()
+   name = "gr" + str(j)
+   gr.Write(name)
 
-
+f0.Write()
 
 #========= Calculate total Xsec
 print("======================")

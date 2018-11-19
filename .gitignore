@@ -6,4 +6,5 @@
 *.pyc
 
 ptolemy
+ExtractXSec
 !ptolemy_manual.pdf
