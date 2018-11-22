@@ -10,7 +10,7 @@
  * -----------------------------------------------------
  *  This program will call the root library and compile in g++
  *  compilation:
- *  g++ cleopatra.C -o cleopatra 'root-config --cflags --glibs'
+ *  g++ cleopatra.C -o cleopatra `root-config --cflags --glibs`
  *
  *------------------------------------------------------
  *  The reaction_setting file is simple like:
@@ -26,68 +26,17 @@
  *  email: goluckyryan@gmail.com
  * ********************************************************************/
 
-//#include <iostream>
 #include <fstream>
 #include <stdlib.h>
 #include <cmath>
 #include <vector>
-//#include <TROOT.h>
-//#include <TFile.h>
-//#include <TString.h>
-//#include "nuclear_mass.h" // for geting Z
+#include <TROOT.h>
+#include <TFile.h>
+#include <TString.h>
+#include "Isotope.h" // for geting Z
+#include "potentials.h"
 
 using namespace std;
-
-//golbal varibale for Optical Potential
-double v, r0, a;
-double vi, ri0, ai;
-double vsi, rsi0, asi;
-double vso, rso0, aso;
-double vsoi, rsoi0, asoi, rc0;
-
-bool AnCaiPotential(int A, int Z, double E){
-  // d + A(Z)
-  // E < 183 or 81.5 MeV/u
-  // 12 < A < 238
-  // http://dx.doi.org/10.1103/PhysRevC.73.054605
-  
-  if( !(12 <= A &&  A <= 238 ) ) return false;
-  if( E > 183 ) return false;
-
-  double A3 = pow(A, 1./3.);
-
-  v  = 91.85 - 0.249*E + 0.000116*pow(E,2) + 0.642 * Z / A3;
-  r0 = 1.152 - 0.00776 / A3;
-  a  = 0.719 + 0.0126 * A3;
-
-  vi  = 1.104 + 0.0622 * E;
-  ri0 = 1.305 + 0.0997 / A3;
-  ai  = 0.855 - 0.1 * A3;
-
-  vsi  = 10.83 - 0.0306 * E;
-  rsi0 = 1.334 + 0.152 / A3;
-  asi  = 0.531 + 0.062 * A3;
-
-  vso  = 3.557;
-  rso0 = 0.972;
-  aso  = 1.011;
-
-  vsoi  = 0.0;
-  rsoi0 = 0.0;
-  asoi  = 0.0;
-
-  rc0 = 1.303;
-
-  return true;
-}
-
-bool CalPotential(string potName, int A, int Z, double E){
-  bool okFlag = false;
-
-  AnCaiPotential(A, Z, E);
-  
-  return okFlag;
-}
 
 vector<string> SplitStr(string tempLine, string splitter, int shift = 0){
 
@@ -122,7 +71,6 @@ vector<string> SplitStr(string tempLine, string splitter, int shift = 0){
   return output;
 }
 
-
 int main (int argc, char *argv[]) {
    
   printf("=================================================================\n");
@@ -136,7 +84,7 @@ int main (int argc, char *argv[]) {
     printf("From file : %s \n", argv[1]);
   }
 
-  //================= read infile. extract the reactions
+  //================= read infile. extract the reactions, write pptolemy infile for each reaction
   ifstream file_in;
   file_in.open(argv[1], ios::in);
 
@@ -144,6 +92,13 @@ int main (int argc, char *argv[]) {
     printf(" cannot read file. \n");
     return 0 ; 
   }
+  
+  
+  string ptolemyInFileName = argv[1];
+  ptolemyInFileName += ".in";
+  printf(" save to infile : %s \n", ptolemyInFileName.c_str()); 
+  FILE * file_out;
+  file_out = fopen (ptolemyInFileName.c_str(), "w+");
 
   //extract information
   while( file_in.good() ) {
@@ -169,31 +124,76 @@ int main (int argc, char *argv[]) {
     }
     printf("\n");
     
-    printf("target nucleus : %s \n", str1[0].c_str());
-    printf("      reaction : %s \n", str2[0].c_str());
-    printf("        remain : %s \n", str2[1].c_str());
-    printf("        energy : %s \n", str0[1].c_str());
-    printf("     Potential : %s \n", str0[2].c_str());
+    string orbital = str0[1];
+    string Ex = str0[2];
+    string reactionEnergy = str0[3];
+    string potential = str0[4];
+    
+    string isoA = str1[0];
+    string isoB = str2[1];
+    string reactionType = str2[0];
+    
+    
+    printf("  target nucleus : %s \n", isoA.c_str());
+    printf("        reaction : %s \n", reactionType.c_str());
+    printf("          remain : %s \n", isoB.c_str());
+    printf(" reaction energy : %s \n", reactionEnergy.c_str());
+    printf("       Potential : %s \n", potential.c_str());
+    printf("         orbital : %s \n", orbital.c_str());
+    printf("        Ex [MeV] : %s \n", Ex.c_str());
+    
+    Isotope isotopeA(str1[0]);
+    Isotope isotopeB(str2[1]);
+    
+    printf("A: %d, Z: %d, mass: %f MeV/c2 \n", isotopeA.A, isotopeA.Z, isotopeA.Mass);
+    printf("A: %d, Z: %d, mass: %f MeV/c2 \n", isotopeB.A, isotopeB.Z, isotopeB.Mass);
+    
+    //write ptolmey infile
+    fprintf(file_out, "$============================================ Ex=%s(%s)%s\n", Ex.c_str(), orbital.c_str(), potential.c_str());
+    fprintf(file_out, "reset\n");
+    fprintf(file_out, "REACTION: %s%s%s() ELAB=\n", isoA.c_str(), reactionType.c_str(), isoB.c_str());
+    fprintf(file_out, "PARAMETERSET dpsb r0target \n");
+    fprintf(file_out, "$lstep=1 lmin=0 lmax=30 maxlextrap=0 asymptopia=50 \n");
+    fprintf(file_out, "\n");
+    fprintf(file_out, "PROJECTILE \n");
+    fprintf(file_out, "wavefunction av18 \n");
+    fprintf(file_out, "r0=1 a=0.5 l=0 \n");
+    fprintf(file_out, ";\n");
+    fprintf(file_out, "TARGET\n");
+    //fprintf(file_out, "JBIGA=0\n");
+    fprintf(file_out, "nodes=1 l=4 jp=9/2 $node is n-1 \n");
+    fprintf(file_out, "r0=1.25 a=.65 \n");
+    fprintf(file_out, "vso=6 rso0=1.10 aso=.65 \n");
+    fprintf(file_out, "rc0=1.3 \n");
+    fprintf(file_out, ";\n");
+    fprintf(file_out, "INCOMING\n");
+    
+    CallPotential("A", 206, 82, 14.8);
+    
+    fprintf(file_out, ";\n");
+    fprintf(file_out, "OUTGOING\n");
+    
+    CallPotential("K", 206, 82, 14.8);
+    
+    fprintf(file_out, ";\n");
+    fprintf(file_out, "anglemin=0 anglemax=50 anglestep=0.5\n");
+    fprintf(file_out, ";\n");
     
     
   }
   
-
+  fprintf(file_out, "end $================================== end of input\n");
   file_in.close();
+  fclose(file_out);
 
   //================= create ptolemy infile
-  CalPotential("AK", 206, 82, 14.8);
+
+
+
+
+
+
   
-  string saveFileName = argv[1];
-  saveFileName += ".Xsec.txt";
-
-  //printf(" save file : %s \n", saveFileName.c_str()); 
-  //ofsteam file_out;
-
-
-
-  //file_out.open(
-
   //================= run ptolemy
 
 

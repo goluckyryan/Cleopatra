@@ -5,21 +5,19 @@
 # one for outgoing
 #===== Potenital abberation
 #== deuteron
-# A = An and Cai, deuteron
-# H = HSS
-#
+# A = An, Cai, 2006         |      E < 183 | 12 < A < 238 (http://dx.doi.org/10.1103/PhysRevC.73.054605)
+# H = Han, Shi, Shen, 2006  |      E < 200 | 12 < A < 209 (http://dx.doi.org/10.1103/PhysRevC.74.044615)  // not impletmented yet
+# B = Bojowald et al., 1988 | 50 < E < 80  | 27 < A < 208 (http://dx.doi.org/10.1103/PhysRevC.38.1153)    // not impletmented yet
 #
 #
 #
 #== proton
+# K = Koning and Delaroche, 2009  | 0.001 < E < 200 | 24 < A < 209 | Iso. Dep. (http://dx.doi.org/10.1016/S0375-9474(02)01321-0)
+# V = Varner et al., (CH89), 1991 |    16 < E < 65  |  4 < A < 209             (http://dx.doi.org/10.1016/0370-1573(91)90039-O)   // not impletmented yet
 #
 #
-#
-#
-206Hg(d,p)207Hg    10MeV/u   AK
-206Hg(d,a)207Hg    10MeV/u   AK
-20Hg(d,d)27Hg    20MeV/u   PG
-
+206Hg(d,p)207Hg  1g9/2  +  0.000  10MeV/u   AK
+206Hg(d,a)207Hg  2g7/2  +  1.200  10MeV/u   AK
 
 
 
