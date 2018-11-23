@@ -5,6 +5,19 @@ double vsi, rsi0, asi;
 double vso, rso0, aso;
 double vsoi, rsoi0, asoi, rc0;
 
+string potentialRef(string name){
+   
+   if( name == "A" ){
+      return "An and Cai (2006) | E < 183 | 12 < A < 238 | http://dx.doi.org/10.1103/PhysRevC.73.054605";
+   }
+   
+   if( name == "K" ){
+      return "Koning and Delaroche (2009) | 0.001 < E < 200 | 24 < A < 209 | Iso. Dep. | http://dx.doi.org/10.1016/S0375-9474(02)01321-0";
+   }
+   
+   return "";
+}
+
 //======================== deuteron 
 bool AnCaiPotential(int A, int Z, double E){
   // d + A(Z)
