@@ -135,11 +135,12 @@ int main (int argc, char *argv[]) { //TODO add angle range
       continue;
     }
     
-    string orbital = str0[1];
-    string parity = (str0[2] == "+1" ? "+" : "-");
-    string Ex = str0[3];
-    string reactionEnergy = str0[4];
-    string potential = str0[5];
+    string gsSpinA = str0[1];
+    string orbital = str0[2];
+    string parity = (str0[3] == "+1" ? "+" : "-");
+    string Ex = str0[4];
+    string reactionEnergy = str0[5];
+    string potential = str0[6];
     
     string isoA = str1[0];
     string isoB = str2[1];
@@ -209,7 +210,7 @@ int main (int argc, char *argv[]) { //TODO add angle range
     fprintf(file_out, "r0=1 a=0.5 l=0 \n");
     fprintf(file_out, ";\n");
     fprintf(file_out, "TARGET\n");
-    //fprintf(file_out, "JBIGA=0\n");
+    fprintf(file_out, "JBIGA=%s\n", gsSpinA.c_str());
     
     fprintf(file_out, "nodes=%s l=%d jp=%s $node is n-1 \n", node.c_str(), spdf, jValue.c_str()); //TODO
     fprintf(file_out, "r0=1.25 a=.65 \n");
