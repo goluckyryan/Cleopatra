@@ -228,7 +228,7 @@ int main (int argc, char *argv[]) { //TODO add angle range
     fprintf(file_out, "vi = %7.3f     ri0 = %7.3f   ai = %7.3f\n", vi, ri0, ai);
     fprintf(file_out, "vsi = %7.3f   rsi0 = %7.3f  asi = %7.3f\n", vsi, rsi0, asi);
     fprintf(file_out, "vso = %7.3f   rso0 = %7.3f  aso = %7.3f\n", vso, rso0, aso);
-    fprintf(file_out, "vsoi = %7.3f rsoi0 = %7.3f asio = %7.3f  rc0 = %7.3f\n", vsoi, rsoi0, asoi, rc0);
+    fprintf(file_out, "vsoi = %7.3f rsoi0 = %7.3f asoi = %7.3f  rc0 = %7.3f\n", vsoi, rsoi0, asoi, rc0);
     fprintf(file_out, ";\n");
     
     string pot2Name = potential.substr(1,1);
@@ -240,8 +240,7 @@ int main (int argc, char *argv[]) { //TODO add angle range
     fprintf(file_out, "vi = %7.3f     ri0 = %7.3f   ai = %7.3f\n", vi, ri0, ai);
     fprintf(file_out, "vsi = %7.3f   rsi0 = %7.3f  asi = %7.3f\n", vsi, rsi0, asi);
     fprintf(file_out, "vso = %7.3f   rso0 = %7.3f  aso = %7.3f\n", vso, rso0, aso);
-    fprintf(file_out, "vsoi = %7.3f rsoi0 = %7.3f asio = %7.3f  rc0 = %7.3f\n", vsoi, rsoi0, asoi, rc0);
-    fprintf(file_out, ";\n");
+    fprintf(file_out, "vsoi = %7.3f rsoi0 = %7.3f asoi = %7.3f  rc0 = %7.3f\n", vsoi, rsoi0, asoi, rc0);
     fprintf(file_out, ";\n");
     
     
