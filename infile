@@ -17,8 +17,8 @@
 #
 #
 #reaction   gs-spin orbital  parity   Ex  ELab      Potentials
-206Hg(d,p)207Hg  0   1g9/2  +1  0.000  10.23MeV/u   AK
-206Hg(d,p)207Hg  0   2d5/2  -1  1.200  10.45MeV/u   AK
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  10.23MeV/u   AK
+206Hg(d,p)207Hg   0   2d5/2  -1  1.200  10.45MeV/u   AK
 
 
 

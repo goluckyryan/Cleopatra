@@ -9,6 +9,7 @@ wavefunction av18
 r0=1 a=0.5 l=0 
 ;
 TARGET
+JBIGA=0
 nodes=1 l=4 jp=9/2 $node is n-1 
 r0=1.25 a=.65 
 vso=6 rso0=1.10 aso=.65 
@@ -42,6 +43,7 @@ wavefunction av18
 r0=1 a=0.5 l=0 
 ;
 TARGET
+JBIGA=0
 nodes=2 l=2 jp=5/2 $node is n-1 
 r0=1.25 a=.65 
 vso=6 rso0=1.10 aso=.65 
