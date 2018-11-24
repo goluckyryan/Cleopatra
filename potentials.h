@@ -1,3 +1,14 @@
+/***********************************************************************
+ * 
+ *  This is potenital.h, To calculate optical potenital
+ *  It contains various optical potential for proton and deuteron
+ *  It is as same as Kay Ben's globals_beta_v5
+ * 
+ *-------------------------------------------------------
+ *  created by Ryan (Tsz Leung) Tang, Nov-18, 2018
+ *  email: goluckyryan@gmail.com
+ * ********************************************************************/
+ 
 //golbal varibale for Optical Potential
 double v, r0, a;
 double vi, ri0, ai;

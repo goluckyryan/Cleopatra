@@ -6,6 +6,7 @@
 *.pyc
 
 cleopatra
+InFileCreator
 ptolemy
 ExtractXSec
 !ptolemy_manual.pdf

@@ -91,7 +91,7 @@ int main (int argc, char *argv[]) { //TODO add angle range
   printf("=================================================================\n");
 
   if(argc != 2) { 
-    printf("Usage: ./ExtractXSec input_file\n");
+    printf("Usage: ./Cleopatra input_file\n");
     exit(0); 
   }else{
     printf("From file : %s \n", argv[1]);

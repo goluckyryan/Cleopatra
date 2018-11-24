@@ -1,3 +1,13 @@
+/***********************************************************************
+ * 
+ *  This is Isotope.h, To extract the isotope mass from massXX.txt
+ * 
+ *-------------------------------------------------------
+ *  created by Ryan (Tsz Leung) Tang, Nov-18, 2018
+ *  email: goluckyryan@gmail.com
+ * ********************************************************************/
+
+
 #ifndef ISOTOPE_H
 #define ISOTOPE_H
 
