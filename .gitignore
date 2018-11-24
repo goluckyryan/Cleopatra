@@ -5,8 +5,11 @@
 *.out
 *.pyc
 
-cleopatra
+Cleopatra
 InFileCreator
 ptolemy
 ExtractXSec
+
+#≈exculde
 !ptolemy_manual.pdf
+!infile.out
