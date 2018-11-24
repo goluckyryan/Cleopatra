@@ -30,6 +30,10 @@
 #include <stdlib.h>     /* atof */
 #include <cmath>
 #include <vector>
+#include <iostream>
+#include <stdexcept>
+#include <stdio.h>
+#include <string>
 #include <TROOT.h>
 #include <TFile.h>
 #include <TString.h>
@@ -82,6 +86,24 @@ int GetLValue(string spdf){
   if( spdf == "h" ) return 6;
   
   return -1;
+}
+
+std::string exec(const char* cmd) {
+    char buffer[128];
+    std::string result = "";
+    FILE* pipe = popen(cmd, "r");
+    if (!pipe) throw std::runtime_error("popen() failed!");
+    try {
+        while (!feof(pipe)) {
+            if (fgets(buffer, 128, pipe) != NULL)
+                result += buffer;
+        }
+    } catch (...) {
+        pclose(pipe);
+        throw;
+    }
+    pclose(pipe);
+    return result;
 }
 
 int main (int argc, char *argv[]) { //TODO add angle range
@@ -262,7 +284,14 @@ int main (int argc, char *argv[]) { //TODO add angle range
   ptolemyOutFileName += ".out";
   sprintf(command, "./ptolemy <%s> %s", ptolemyInFileName.c_str(),  ptolemyOutFileName.c_str());
   printf("%s \n", command);
-  system(command);
+  string ptolemyStatus = exec(command);
+  
+  printf("============ %s\n", ptolemyStatus.c_str());
+  
+  if( ptolemyStatus != "" ) {
+    printf("!!!!!! ptolemy ecounter error !! need to check the %s\n", ptolemyOutFileName.c_str());
+    return 0;
+  }
 
   //================= extract the Xsec and save as txt and root
 
