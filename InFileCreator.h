@@ -79,7 +79,7 @@ int GetLValue(string spdf){
   return -1;
 }
 
-int InFileCreator(string read, string infile, double angMax, double angMin, double angStep) {
+int InFileCreator(string read, string infile, double angMin, double angMax, double angStep) {
    
   //================= read infile. extract the reactions, write pptolemy infile for each reaction
   ifstream file_in;
