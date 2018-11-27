@@ -94,6 +94,8 @@ int InFileCreator(string read, string infile, double angMin, double angMax, doub
   FILE * file_out;
   file_out = fopen (infile.c_str(), "w+");
 
+  printf("Angle setting (%5.2f, %5.2f) deg | Step : %5.2f deg\n", angMin, angMax, angStep);
+
   //extract information
   int numOfReaction = 0;
   while( file_in.good() ) {

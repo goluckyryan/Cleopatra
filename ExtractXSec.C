@@ -21,6 +21,7 @@
 #include <TString.h>
 #include <TMath.h>
 #include <TGraph.h>
+#include <TObjArray.h>
 
 using namespace std;
 
@@ -44,15 +45,6 @@ int main (int argc, char *argv[]) {
     printf("Unable to open %s \n", argv[1]);
     exit(1);
   }
-
-  //---- open file.Xsec.txt
-  string saveFileName = argv[1];
-  int len = saveFileName.length();
-  saveFileName = saveFileName.substr(0, len - 4); 
-  saveFileName += ".Xsec.txt";
-  printf("Output : %s \n", saveFileName.c_str());
-  ofstream file_out;
-  file_out.open(saveFileName.c_str(), ios::out | ios::trunc);
 
   //---- variable for Xsec
   vector<string> title;
@@ -172,7 +164,6 @@ int main (int argc, char *argv[]) {
     }
     
   }
-  file_out.close();
   file_in.close();
   
   //---- summary
@@ -181,19 +172,79 @@ int main (int argc, char *argv[]) {
   printf("Number of Angle read : %lu \n", angle.size());
   printf("Number of  data read : %lu \n", dataXsec.size());
   printf("Number of Reaction   : %lu \n", reaction.size());
+  
+  
   printf("----------------------------- list of Calculation \n");
-  
-  
   for( int i = 0; i < numCal ; i++){
     
     double partialSumXsec = 0.0;
     for( int j = 0; j < (dataMatrix[i]).size() ; j++ ){
-      double theta = (angle[i] + angleStep/2.) * TMath::DegToRad();
+      //double theta = (angle[j] + angleStep/2.) * TMath::DegToRad();
+      double theta = (angle[j]) * TMath::DegToRad();
       double dTheta = angleStep * TMath::DegToRad();
       double phi = TMath::TwoPi();
       partialSumXsec += dataMatrix[i][j] * sin( theta ) * dTheta * phi ;
     }
-      
-    printf("%50s, Partial_Sum(Xsec) : %f mb\n", reaction[i].c_str(), partialSumXsec);
+    
+    size_t pos = title[i].find(")");
+    printf("%50s| %s | Xsec(%3.0f-%3.0f deg) : %f mb\n", reaction[i].c_str(), title[i].substr(pos+1).c_str(), angleMin, angleMax, partialSumXsec);
   }
+  printf("---------------------------------------------------\n");
+  
+  
+  //---- open file.Xsec.txt
+  string saveFileName = argv[1];
+  int len = saveFileName.length();
+  saveFileName = saveFileName.substr(0, len - 4); 
+  saveFileName += ".Xsec.txt";
+  printf("Output : %s \n", saveFileName.c_str());
+  FILE * file_out;
+  file_out = fopen(saveFileName.c_str(), "w+");
+  
+  for( int i = 0; i < numCal ; i++){
+      fprintf(file_out, "#%14s\n", reaction[i].c_str());
+  }
+  
+  int space = 19;
+  fprintf(file_out, "%8s\t", "Angel");
+  for( int i = 0; i < numCal ; i++){
+      fprintf(file_out, "%*s", space, title[i].c_str());
+  }
+  fprintf(file_out, "\n");
+  
+  for( int i = 0; i < angle.size() ; i ++){
+    fprintf(file_out, "%8.3f\t", angle[i]);
+    for( int j = 0; j < numCal ; j++){
+        fprintf(file_out, "%*f", space, dataMatrix[j][i]);
+    }
+    fprintf(file_out, "\n");
+  }
+  fclose(file_out);
+  printf("---------------------------------------------------\n");
+  
+  //Save in ROOT
+  len = saveFileName.length();
+  saveFileName = saveFileName.substr(0, len - 9);
+  TString fileName = saveFileName;
+  fileName += ".root"; 
+  printf("Output : %s \n", fileName.Data());
+  TFile * fileOut = new TFile(fileName, "RECREATE" );
+  
+  TObjArray * gList = new TObjArray();
+  for( int i = 0; i < numCal ; i++){
+    TGraph * gTemp = new TGraph();
+    TString name = reaction[i];
+    name += "|";
+    name += title[i];
+    gTemp->SetName(name);
+    for( int j = 0; j < angle.size() ; j++){
+        gTemp->SetPoint(j, angle[j], dataMatrix[i][j]);
+    }
+    gList->Add(gTemp);
+  }
+  
+  gList->Write("gList", 1);
+  fileOut->Write();
+  fileOut->Close();
+  printf("---------------------------------------------------\n");
 } 
