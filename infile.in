@@ -29,7 +29,7 @@ vsi =   9.983   rsi0 =   1.249  asi =   0.626
 vso =   6.028   rso0 =   1.076  aso =   0.590
 vsoi =  -0.049 rsoi0 =   1.076 asoi =   0.590  rc0 =   1.220
 ;
-anglemin=0 anglemax=50 anglestep=0.5
+anglemin=0.000000 anglemax=50.000000 anglestep=1.000000
 ;
 $============================================ Ex=1.200(2d5/2)AK
 reset
@@ -62,6 +62,6 @@ vsi =   9.983   rsi0 =   1.249  asi =   0.626
 vso =   6.028   rso0 =   1.076  aso =   0.590
 vsoi =  -0.049 rsoi0 =   1.076 asoi =   0.590  rc0 =   1.220
 ;
-anglemin=0 anglemax=50 anglestep=0.5
+anglemin=0.000000 anglemax=50.000000 anglestep=1.000000
 ;
 end $================================== end of input

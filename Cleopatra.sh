@@ -48,7 +48,7 @@ echo "infile ----> "${loadfile}
 echo "Ptolemy  infile ----> "${infile}
 echo "Ptolemy outfile ----> "${outfile}
 
-./InFileCreator ${loadfile}
+./InFileCreator ${loadfile} 0.0 50.0 1.0
 
 echo "================================================================="
 echo "=====   Ptolemy Calcualtion   ==================================="
@@ -59,5 +59,4 @@ echo "================================================================="
 echo "=====   Extract Xsec   =========================================="
 echo "================================================================="
 ./ExtractXSec.py ${outfile}
-
 

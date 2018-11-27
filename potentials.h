@@ -18,15 +18,46 @@ double vsoi, rsoi0, asoi, rc0;
 
 string potentialRef(string name){
    
-   if( name == "A" ){
-      return "An and Cai (2006) | E < 183 | 12 < A < 238 | http://dx.doi.org/10.1103/PhysRevC.73.054605";
-   }
+  if( name == "A" ){
+    return "An and Cai (2006) E < 183 | 12 < A < 238 | http://dx.doi.org/10.1103/PhysRevC.73.054605";
+  }
+  if( name == "H" ){
+    return "Han, Shi, Shen (2006) E < 200 | 12 < A < 209 | http://dx.doi.org/10.1103/PhysRevC.74.044615";
+  }
+  if( name == "B" ){
+    return "Bojowald et al.(1988) 50 < E < 80 | 27 < A < 208 | http://dx.doi.org/10.1103/PhysRevC.38.1153";
+  }
+  if( name == "D" ){
+    return "Daehnick, Childs, Vrcelj (1980) 11.8 < E < 80 | 27 < A < 238 (REL) | http://dx.doi.org/10.1103/PhysRevC.21.2253";
+  }
+  if( name == "C" ){
+    return "Daehnick, Childs, Vrcelj (1980) 11.8 < E < 80 | 27 < A < 238 (NON-REL) | http://dx.doi.org/10.1103/PhysRevC.21.2253";
+  }
+  if( name == "L" ){
+    return "Lohr and Haeberli (1974) 9 < E < 13 | 40 < A | http://dx.doi.org/10.1016/0375-9474(74)90627-7";
+  }
+  if( name == "Q" ){
+    return "Perey and Perey (1963) 12 < E < 25  | 40 < A | http://dx.doi.org/10.1016/0370-1573(91)90039-O";
+  }
    
-   if( name == "K" ){
-      return "Koning and Delaroche (2009) | 0.001 < E < 200 | 24 < A < 209 | Iso. Dep. | http://dx.doi.org/10.1016/S0375-9474(02)01321-0";
-   }
    
-   return "";
+  if( name == "K" ){
+    return "Koning and Delaroche (2009) 0.001 < E < 200 | 24 < A < 209 | Iso. Dep. | http://dx.doi.org/10.1016/S0375-9474(02)01321-0";
+  }
+  if( name == "V" ){
+    return "Varner et al., (CH89) (1991) 16 < E < 65 | 4 < A < 209 | http://dx.doi.org/10.1016/0370-1573(91)90039-O";
+  }
+  if( name == "M" ){
+    return "Menet et al. (1971) 30 <  E < 60 | 40 < A | http://dx/doi.org/10.1016/0092-640X(76)90007-3";
+  }
+  if( name == "G" ){
+    return "Becchetti and Greenlees (1969) E < 50 | 40 < A | http://dx.doi.org/10.1103/PhysRev.182.1190";
+  }
+  if( name == "P" ){
+    return "Perey (1963) E < 20 | 30 < A < 100 | http://dx/doi.org/10.1016/0092-640X(76)90007-3";
+  }
+   
+  return "";
 }
 
 //======================== deuteron 

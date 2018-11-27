@@ -1,8 +1,22 @@
+/***********************************************************************
+ * 
+ *  This is ExtractXSec for *.out for Ptolemy
+ * 
+ * -----------------------------------------------------
+ *  This program will call the root library and compile in g++
+ *  compilation:
+ *  g++ InFileCreator.C -o InFileCreator `root-config --cflags --glibs`
+ *
+ * ------------------------------------------------------
+ *  created by Ryan (Tsz Leung) Tang, Nov-18, 2018
+ *  email: goluckyryan@gmail.com
+ * ********************************************************************/
+
 #include <fstream>
 #include <stdlib.h>
 #include <cmath>
 
-//TODO, use root
+using namespace std;
 
 int main (int argc, char *argv[]) {
    
@@ -19,11 +33,11 @@ int main (int argc, char *argv[]) {
    }
 
    ifstream file_in;
-   file_in.open(argv[1], iso::in);
+   file_in.open(argv[1], ios::in);
 
    string saveFileName = argv[1];
 
-   saveFileName += ".Xsec.txt"
+   saveFileName += ".Xsec.txt";
 
    //ofsteam file_out;
 
