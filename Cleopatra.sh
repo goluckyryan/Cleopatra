@@ -26,15 +26,20 @@
 #for User, please Modify the path for thisroot.h
 source /Applications/root/bin/thisroot.sh
 
-#================================ User Control
+#================================ User Defualt Control
 CreateInFile=0   # 0 = false, 1 = true
 RunPtolemy=0
-IsExtractXSec=1
-PlotResult=1
-#============================================
+IsExtractXSec=0
+PlotResult=0
+#============================================ USER don't need to change thing below
 
 if [ $# -eq 0 ] ; then
-   echo "$./Cleopatra in-file"
+  echo "$./Cleopatra in-file X  X  X  X"
+  echo "                     |  |  |  |"
+  echo "                     |  |  |  PlotResult? (1/0)"
+  echo "                     |  |  Extract cross-section? (1/0)"
+  echo "                     |  Run Ptolemy? (1/0)"
+  echo "                     Create infile? (1/0)"
   exit 1
 fi;
 
@@ -43,6 +48,25 @@ infile=$1".in"
 outfile=$1".out"
 rootfile=$1".root"
 
+if [ $# -eq 2 ]; then
+  CreateInFile=$2
+fi;
+if [ $# -eq 3 ]; then
+  CreateInFile=$2
+  RunPtolemy=$3
+fi;
+if [ $# -eq 4 ]; then
+  CreateInFile=$2
+  RunPtolemy=$3
+  IsExtractXSec=$4
+fi;
+if [ $# -eq 5 ]; then
+  CreateInFile=$2
+  RunPtolemy=$3
+  IsExtractXSec=$4
+  PlotResult=$5
+fi;
+
 echo "#################################################################"
 echo "##   @@@@ @@    @@@@  @@@@  @@@@@  @@@@  @@@@@@ @@@@@   @@@@   ##"
 echo "##  @@    @@    @@   @@  @@ @@ @@ @@  @@   @@   @@ @@  @@  @@  ##"
@@ -50,7 +74,7 @@ echo "##  @@    @@    @@@@ @@  @@ @@@@@ @@@@@@   @@   @@@@@  @@@@@@  ##"
 echo "##  @@    @@    @@   @@  @@ @@    @@  @@   @@   @@ @   @@  @@  ##"
 echo "##   @@@@ @@@@@ @@@@  @@@@  @@    @@  @@   @@   @@  @  @@  @@  ##"
 echo "#################################################################"
-echo "#####  Cleopatra, Ptolemy for (d,p),(p,d), (p,p) and (d,d)  #####"
+echo "#####        Cleopatra, Ptolemy for (d,p),(p,d)             #####"
 echo "#################################################################"
 echo ""
 echo "USER OPTION:"
@@ -58,16 +82,16 @@ echo " --- Is Create Ptolemy infile ? " ${CreateInFile}
 echo " --- Is Run Ptolemy           ? " ${RunPtolemy}
 echo " --- Is Extract Cross-Section ? " ${IsExtractXSec}
 echo " --- Is Plot Results          ? " ${PlotResult}
+echo "================================================================="
 
-
-if [ ${CreateInFile} -eq 1 ] ; then 
-  echo "infile ----> "${loadfile}
-fi;
-
-if [ ${RunPtolemy} -eq 1 ] ; then 
-  echo "Ptolemy  infile ----> "${infile}
-  echo "Ptolemy outfile ----> "${outfile}
-fi;
+#if [ ${CreateInFile} -eq 1 ] ; then 
+#  echo "infile ----> "${loadfile}
+#fi;
+#
+#if [ ${RunPtolemy} -eq 1 ] ; then 
+#  echo "Ptolemy  infile ----> "${infile}
+#  echo "Ptolemy outfile ----> "${outfile}
+#fi;
 
 if [ ${CreateInFile} -eq 1 ] ; then 
   ./InFileCreator ${loadfile} 0.0 50.0 0.5

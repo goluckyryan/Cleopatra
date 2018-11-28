@@ -21,18 +21,18 @@
 #=======================================================================
 #reaction   gs-spin orbital  parity   Ex  ELab      Potentials
 206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   AK
-206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   AV
-206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   AM
-206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   AG
-206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   AP
-206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   HK
-206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   HV
-206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   HM
-206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   HG
-206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   HP
-206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   BK
-206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   BV
-206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   BM
-206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   BG
-206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   BP
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   QV
+#206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   AM
+#206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   AG
+#206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   AP
+#206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   HK
+#206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   HV
+#206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   HM
+#206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   HG
+#206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   HP
+#206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   BK
+#206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   BV
+#206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   BM
+#206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   BG
+#206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   BP
 

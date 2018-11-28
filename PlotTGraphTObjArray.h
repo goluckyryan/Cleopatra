@@ -37,6 +37,7 @@ void PlotTGraphTObjArray(TString rootFileName){
   }
   
   TCanvas * cPlots = new TCanvas("cPlots", "Ptolemy Results", 0, 0, 800, 600);
+  cPlots->SetLogy();
   
   TLegend * legend = new TLegend( 0.6, 0.2, 0.9, 0.4); 
   

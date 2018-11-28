@@ -237,6 +237,84 @@ bool DaehnickPotential(int A, int Z, double E){
   return true;
 }
 
+bool LohrPotential(int A, int Z, double E){
+  // d + A(Z)
+  // 9 < E < 13 or 4.5, 6.5 MeV/u
+  // 40 < A 
+  // http://dx.doi.org/10.1016/0375-9474(74)90627-7
+  
+  //if( !(40 <= A ) ) return false;
+  //if( E > 13 || E < 9) return false;
+
+  int N = A-Z;
+  double A3 = pow(A, 1./3.);
+  
+  v  = 91.13 + 2.2 * Z / A3;
+  r0 = 1.05;
+  a  = 0.86;
+
+  vi  = 0;
+  ri0 = 0;
+  ai  = 0;
+
+  vsi  = 218./pow(A,2./3.);
+  rsi0 = 1.43;
+  asi  = 0.5 + 0.013 * pow(A,2./3.);
+
+  vso  = 7;
+  rso0 = 0.75;
+  aso  = 0.5;
+
+  vsoi  = 0;
+  rsoi0 = 0;
+  asoi  = 0;
+
+  rc0 = 1.3;
+  
+  //PrintPotential();
+
+  return true;
+}
+
+bool PereyPereyPotential(int A, int Z, double E){
+  // d + A(Z)
+  // 12 < E < 25 or 6, 12.5 MeV/u
+  // 40 < A 
+  // http://dx.doi.org/10.1016/0375-9474(74)90627-7
+  
+  //if( !(40 <= A ) ) return false;
+  //if( E > 25 || E < 12) return false;
+
+  int N = A-Z;
+  double A3 = pow(A, 1./3.);
+  
+  v  = 81 - 0.22*E + 2 * Z / A3;
+  r0 = 1.15;
+  a  = 0.81;
+
+  vi  = 0;
+  ri0 = 0;
+  ai  = 0;
+
+  vsi  = 14.4 + 0.24 * E;
+  rsi0 = 1.34;
+  asi  = 0.68;
+
+  vso  = 0.;
+  rso0 = 0.;
+  aso  = 0.;
+
+  vsoi  = 0;
+  rsoi0 = 0;
+  asoi  = 0;
+
+  rc0 = 1.15;
+  
+  //PrintPotential();
+
+  return true;
+}
+
 
 //======================== proton 
 bool KoningPotential(int A, int Z, double E){
@@ -326,10 +404,6 @@ bool VarnerPotential(int A, int Z, double E){
   double Rc = 1.24 * A3 + 0.12;
   double EC = 1.73 * Z / Rc;
   double ETA = 1.0*(N-Z)/A;
-  
-  printf("Rc  : %f \n", Rc);
-  printf("EC  : %f \n", EC);
-  printf("ETA : %f \n", ETA);
   
   v  = 52.9 + 13.1 * (N-Z)/A - 0.299 * (E - EC);
   r0 = 1.25 - 0.225/A3;
@@ -488,6 +562,8 @@ bool CallPotential(string potName, int A, int Z, double E){
   if( potName == "H") okFlag = HSSPotential(A, Z, E);
   if( potName == "B") okFlag = BojowaldPotential(A, Z, E);
   if( potName == "D") okFlag = DaehnickPotential(A, Z, E);
+  if( potName == "L") okFlag = LohrPotential(A, Z, E);
+  if( potName == "Q") okFlag = PereyPereyPotential(A, Z, E);
   
   if( potName == "K") okFlag = KoningPotential(A, Z, E);
   if( potName == "V") okFlag = VarnerPotential(A, Z, E);
