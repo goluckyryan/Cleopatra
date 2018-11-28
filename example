@@ -6,7 +6,7 @@
 #================================================= Potenital abberation
 #========================= deuteron
 # A = An, Cai, 2006                  |         E < 183 | 12 < A < 238 (http://dx.doi.org/10.1103/PhysRevC.73.054605)
-# H = Han, Shi, Shen, 2006           |         E < 200 | 12 < A < 209 (http://dx.doi.org/10.1103/PhysRevC.74.044615)  // not impletmented yet
+# H = Han, Shi, Shen, 2006           |         E < 200 | 12 < A < 209 (http://dx.doi.org/10.1103/PhysRevC.74.044615)
 # B = Bojowald et al., 1988          |    50 < E < 80  | 27 < A < 208 (http://dx.doi.org/10.1103/PhysRevC.38.1153)    // not impletmented yet
 # D = Daehnick, Childs, Vrcelj, 1980 |  11.8 < E < 80  | 27 < A < 238 (REL) (http://dx.doi.org/10.1103/PhysRevC.21.2253) // not impletmented yet
 # C = Daehnick, Childs, Vrcelj, 1980 |  11.8 < E < 80  | 27 < A < 238 (NON-REL) (http://dx.doi.org/10.1103/PhysRevC.21.2253) // not impletmented yet
@@ -20,6 +20,7 @@
 # P = Perey, 1963                    |         E < 20  | 30 < A < 100             (http://dx/doi.org/10.1016/0092-640X(76)90007-3)   // not impletmented yet
 #=======================================================================
 #reaction   gs-spin orbital  parity   Ex  ELab      Potentials
-206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.38MeV/u   AK
-206Hg(d,p)207Hg   0   2d5/2  +1  1.200  7.38MeV/u   AK
+206Hg(d,p)207Hg   0   1g9/2  +1  6.000  7.39MeV/u   AK
+206Hg(d,p)207Hg   0   3s1/2  +1  6.000  7.39MeV/u   AK
+206Hg(d,p)207Hg   0   2d5/2  +1  6.000  7.39MeV/u   AK
 

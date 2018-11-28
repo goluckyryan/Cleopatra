@@ -97,6 +97,45 @@ bool AnCaiPotential(int A, int Z, double E){
   return true;
 }
 
+bool HSSPotential(int A, int Z, double E){
+  // d + A(Z)
+  // E < 200 or 100 MeV/u
+  // 12 < A < 209
+  // http://dx.doi.org/10.1103/PhysRevC.73.054605
+  
+  if( !(12 <= A &&  A <= 209 ) ) return false;
+  if( E > 200 ) return false;
+
+  int N   = A-Z;
+  double A3 = pow(A, 1./3.);
+  
+  double VIcond = -4.916 + (0.0555*E) + 0.0000442 * pow(E,2) +  35. * (N-Z)/A;
+
+  v  = 82.18 - 0.148 * E - 0.000886 * pow(E,2) - 34.811*(N-Z)/A + 1.058*N/A;
+  r0 = 1.174;
+  a  = 0.809;
+
+  vi  = VIcond > 0 ? VIcond : 0 ;
+  ri0 = VIcond > 0 ? 1.563 : 0;
+  ai  = VIcond > 0 ? 0.7 + 0.045 * A3 : 0;
+
+  vsi  = 20.968 - 0.0794 * E - 43.398 * (N-Z)/A;
+  rsi0 = 1.328;
+  asi  = 0.465 + 0.045*A3;
+
+  vso  = 3.703;
+  rso0 = 1.234;
+  aso  = 0.813;
+
+  vsoi  = -0.206;
+  rsoi0 = 1.234;
+  asoi  = 0.813;
+
+  rc0 = 1.698;
+
+  return true;
+}
+
 
 //======================== proton 
 bool KoningPotential(int A, int Z, double E){
@@ -111,8 +150,8 @@ bool KoningPotential(int A, int Z, double E){
   int N   = A-Z;
   double A3 = pow(A, 1./3.);
   
-  double vp1 = 59.3 + 21*(N-Z)/A - 0.024*A;
-  double vn1 = 59.3 - 21*(N-Z)/A - 0.024*A;
+  double vp1 = 59.3 + 21.*(N-Z)/A - 0.024*A;
+  double vn1 = 59.3 - 21.*(N-Z)/A - 0.024*A;
   
   double vp2 = 0.007067 + 0.00000423*A;
   double vn2 = 0.007228 - 0.00000148*A;
@@ -127,10 +166,10 @@ bool KoningPotential(int A, int Z, double E){
   
   double wp2 = 73.55 + 0.0795*A; // = wn2
   
-  double dp1 = 16 + 16*(N-Z)/A;
-  double dn2 = 16 - 16*(N-Z)/A;
+  double dp1 = 16 + 16.*(N-Z)/A;
+  double dn2 = 16 - 16.*(N-Z)/A;
   
-  double dp2 = 0.018 + 0.003802/(1 + exp((A-156)/8)); // = dn2
+  double dp2 = 0.018 + 0.003802/(1 + exp((A-156.)/8)); // = dn2
   
   double dp3 = 11.5 ; // = dn3
   
@@ -145,14 +184,14 @@ bool KoningPotential(int A, int Z, double E){
   
   double rc = 1.198 + 0.697/pow(A3,2) + 12.995/pow(A3,5);
   double vc = 1.73/rc * Z / A3;
-  
-  v  = vp1*(1 - vp2*(E-epf)) + vp3*pow(E-epf,2) + vp4*pow(E-epf,3) + vc * vp1 * (vp2 - 2*vp3*(E-epf)) + 3*vp4*pow(E-epf,2);
+
+  v  = vp1*(1 - vp2*(E-epf) + vp3*pow(E-epf,2) + vp4*pow(E-epf,3)) + vc * vp1 * (vp2 - 2*vp3*(E-epf) + 3*vp4*pow(E-epf,2));
   r0 = 1.3039 - 0.4054 / A3;
-  a  = 0.6778 - 0.000148 * A3;
+  a  = 0.6778 - 0.000148 * A;
 
   vi  = wp1 * pow(E-epf,2)/(pow(E-epf,2) + pow(wp2,2));
   ri0 = 1.3039 - 0.4054 / A3;
-  ai  = 0.6778 - 0.000148 * A3;
+  ai  = 0.6778 - 0.000148 * A;
 
   vsi  = dp1 * pow(E-epf,2)/(pow(E-epf,2)+pow(dp3,2)) * exp(-dp2*(E-epf));
   rsi0 = 1.3424 - 0.01585 * A3;
@@ -177,6 +216,8 @@ bool CallPotential(string potName, int A, int Z, double E){
   bool okFlag = false;
 
   if( potName == "A") AnCaiPotential(A, Z, E);
+  if( potName == "H") HSSPotential(A, Z, E);
+  
   if( potName == "K") KoningPotential(A, Z, E);
   
   return okFlag;

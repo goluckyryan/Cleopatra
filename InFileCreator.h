@@ -171,6 +171,9 @@ int InFileCreator(string read, string infile, double angMin, double angMax, doub
     Isotope isotopeA(str1[0]);
     Isotope isotopeB(str2[1]);
     
+    double Qvalue = 1875.6129 + isotopeA.Mass - 938.272 - isotopeB.Mass; //(d,p) reaction
+    //printf("Q-Value = %f MeV\n", Qvalue);
+    
     //printf("A: %d, Z: %d, mass: %f MeV/c2 \n", isotopeA.A, isotopeA.Z, isotopeA.Mass);
     //printf("A: %d, Z: %d, mass: %f MeV/c2 \n", isotopeB.A, isotopeB.Z, isotopeB.Mass);
     if( isotopeA.Mass == -404 || isotopeB.Mass == -404 ){
@@ -203,26 +206,23 @@ int InFileCreator(string read, string infile, double angMin, double angMax, doub
     
     string pot1Name = potential.substr(0,1);
     string pot1Ref = potentialRef(pot1Name);
-    
     fprintf(file_out, "INCOMING $%s\n", pot1Ref.c_str());
-    
-    CallPotential(pot1Name, 206, 82, 14.8);
-    fprintf(file_out, "v  = %7.3f      r0 = %7.3f    a = %7.3f\n", v, r0, a);
-    fprintf(file_out, "vi = %7.3f     ri0 = %7.3f   ai = %7.3f\n", vi, ri0, ai);
-    fprintf(file_out, "vsi = %7.3f   rsi0 = %7.3f  asi = %7.3f\n", vsi, rsi0, asi);
-    fprintf(file_out, "vso = %7.3f   rso0 = %7.3f  aso = %7.3f\n", vso, rso0, aso);
+    CallPotential(pot1Name, isotopeA.A, isotopeA.Z, totalBeamEnergy);
+    fprintf(file_out, "v    = %7.3f    r0 = %7.3f    a = %7.3f\n", v, r0, a);
+    fprintf(file_out, "vi   = %7.3f   ri0 = %7.3f   ai = %7.3f\n", vi, ri0, ai);
+    fprintf(file_out, "vsi  = %7.3f  rsi0 = %7.3f  asi = %7.3f\n", vsi, rsi0, asi);
+    fprintf(file_out, "vso  = %7.3f  rso0 = %7.3f  aso = %7.3f\n", vso, rso0, aso);
     fprintf(file_out, "vsoi = %7.3f rsoi0 = %7.3f asoi = %7.3f  rc0 = %7.3f\n", vsoi, rsoi0, asoi, rc0);
     fprintf(file_out, ";\n");
     
     string pot2Name = potential.substr(1,1);
     string pot2Ref = potentialRef(pot2Name);
     fprintf(file_out, "OUTGOING $%s\n", pot2Ref.c_str());
-    
-    CallPotential(pot2Name, 206, 82, 14.8);
-    fprintf(file_out, "v  = %7.3f      r0 = %7.3f    a = %7.3f\n", v, r0, a);
-    fprintf(file_out, "vi = %7.3f     ri0 = %7.3f   ai = %7.3f\n", vi, ri0, ai);
-    fprintf(file_out, "vsi = %7.3f   rsi0 = %7.3f  asi = %7.3f\n", vsi, rsi0, asi);
-    fprintf(file_out, "vso = %7.3f   rso0 = %7.3f  aso = %7.3f\n", vso, rso0, aso);
+    CallPotential(pot2Name, isotopeB.A, isotopeB.Z, totalBeamEnergy + Qvalue - atof(Ex.c_str())); 
+    fprintf(file_out, "v    = %7.3f    r0 = %7.3f    a = %7.3f\n", v, r0, a);
+    fprintf(file_out, "vi   = %7.3f   ri0 = %7.3f   ai = %7.3f\n", vi, ri0, ai);
+    fprintf(file_out, "vsi  = %7.3f  rsi0 = %7.3f  asi = %7.3f\n", vsi, rsi0, asi);
+    fprintf(file_out, "vso  = %7.3f  rso0 = %7.3f  aso = %7.3f\n", vso, rso0, aso);
     fprintf(file_out, "vsoi = %7.3f rsoi0 = %7.3f asoi = %7.3f  rc0 = %7.3f\n", vsoi, rsoi0, asoi, rc0);
     fprintf(file_out, ";\n");
     
