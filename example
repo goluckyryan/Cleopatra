@@ -9,7 +9,7 @@
 # H = Han, Shi, Shen, 2006           |         E < 200 | 12 < A < 209             | http://dx.doi.org/10.1103/PhysRevC.74.044615
 # B = Bojowald et al., 1988          |    50 < E < 80  | 27 < A < 208             | http://dx.doi.org/10.1103/PhysRevC.38.1153
 # D = Daehnick, Childs, Vrcelj, 1980 |  11.8 < E < 80  | 27 < A < 238 (REL)       | http://dx.doi.org/10.1103/PhysRevC.21.2253
-# C = Daehnick, Childs, Vrcelj, 1980 |  11.8 < E < 80  | 27 < A < 238 (NON-REL)   | http://dx.doi.org/10.1103/PhysRevC.21.2253 // not impletmented yet
+#   = Daehnick, Childs, Vrcelj, 1980 |  11.8 < E < 80  | 27 < A < 238 (NON-REL)   | http://dx.doi.org/10.1103/PhysRevC.21.2253 // not impletmented yet
 # L = Lohr and Haeberli, 1974        |     9 < E < 13  | 40 < A                   | http://dx.doi.org/10.1016/0375-9474(74)90627-7 
 # Q = Perey and Perey, 1963          |    12 < E < 25  | 40 < A                   | http://dx.doi.org/10.1016/0370-1573(91)90039-O 
 #========================= proton
@@ -22,17 +22,32 @@
 #reaction   gs-spin orbital  parity   Ex  ELab      Potentials
 206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   AK
 206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   QV
-#206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   AM
-#206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   AG
-#206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   AP
-#206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   HK
-#206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   HV
-#206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   HM
-#206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   HG
-#206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   HP
-#206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   BK
-#206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   BV
-#206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   BM
-#206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   BG
-#206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   BP
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   AM
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   AG
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   AP
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   HK
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   HV
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   HM
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   HG
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   HP
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   BK
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   BV
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   BM
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   BG
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   BP
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   DK
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   DV
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   DM
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   DG
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   DP
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   LK
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   LV
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   LM
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   LG
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   LP
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   QK
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   QV
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   QM
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   QG
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   QP
 
