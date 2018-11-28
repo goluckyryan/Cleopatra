@@ -38,27 +38,11 @@
 #include <TFile.h>
 #include <TString.h>
 #include "InFileCreator.h"
+#include "ExtractXSec.h"
+#include <TApplication.h>
+#include "PlotTGraphTObjectArray.h"
 
 using namespace std;
-
-
-std::string exec(const char* cmd) {
-    char buffer[128];
-    std::string result = "";
-    FILE* pipe = popen(cmd, "r");
-    if (!pipe) throw std::runtime_error("popen() failed!");
-    try {
-        while (!feof(pipe)) {
-            if (fgets(buffer, 128, pipe) != NULL)
-                result += buffer;
-        }
-    } catch (...) {
-        pclose(pipe);
-        throw;
-    }
-    pclose(pipe);
-    return result;
-}
 
 int main (int argc, char *argv[]) { //TODO add angle range
    
@@ -99,23 +83,17 @@ int main (int argc, char *argv[]) { //TODO add angle range
   string ptolemyOutFileName = argv[1];
   ptolemyOutFileName += ".out";
   sprintf(command, "./ptolemy <%s> %s", ptolemyInFileName.c_str(),  ptolemyOutFileName.c_str());
-  printf("%s \n", command);
-  string ptolemyStatus = exec(command);
-  
-  printf("============ %s\n", ptolemyStatus.c_str());
-  
-  if( ptolemyStatus != "" ) {
-    printf("!!!!!! ptolemy ecounter error !! need to check the %s\n", ptolemyOutFileName.c_str());
-    return 0;
-  }
+  //printf("%s \n", command);
+  system(command);
 
   //================= extract the Xsec and save as txt and root
-
+  ExtractXSec(ptolemyOutFileName);
 
   //================= Call root to plot the d.s.c.
-
-
-  //================= load the experimental Xsec file in txt or in root, then fit
-
-
+  string rootFileName = argv[1];
+  rootFileName += ".root";
+  TApplication app ("app", &argc, argv);
+  PlotTGraphTObjectArray(rootFileName);
+  app.Run(); //nothing run after
+  return 0;
 } 
