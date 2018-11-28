@@ -74,7 +74,7 @@ int main (int argc, char *argv[]) { //TODO add angle range
   
   string ptolemyInFileName = argv[1];
   ptolemyInFileName += ".in";
-  
+  printf("=================== Create InFile\n");
   InFileCreator( readFile, ptolemyInFileName, angMin, angMax, angStep);
   
   //================= run ptolemy
@@ -83,13 +83,16 @@ int main (int argc, char *argv[]) { //TODO add angle range
   string ptolemyOutFileName = argv[1];
   ptolemyOutFileName += ".out";
   sprintf(command, "./ptolemy <%s> %s", ptolemyInFileName.c_str(),  ptolemyOutFileName.c_str());
-  //printf("%s \n", command);
+  printf("=================== Run Ptolemy\n");
+  printf("%s \n", command);
   system(command);
 
   //================= extract the Xsec and save as txt and root
+  printf("=================== Extract Cross-section\n");
   ExtractXSec(ptolemyOutFileName);
 
   //================= Call root to plot the d.s.c.
+  printf("=================== Plot Result using ROOT.\n");
   string rootFileName = argv[1];
   rootFileName += ".root";
   TApplication app ("app", &argc, argv);
