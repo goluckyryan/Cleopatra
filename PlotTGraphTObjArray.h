@@ -52,6 +52,8 @@ void PlotTGraphTObjArray(TString rootFileName){
     
     gr[i] = (TGraph *) gList->At(i);
     gr[i]->SetLineColor(i+1);
+    gr[i]->GetXaxis()->SetTitle("#theta_{CM} [deg]");
+    gr[i]->GetYaxis()->SetTitle("d#sigma/d#Omega [mb/sr]");
     
     TString name = gr[i]->GetName();
     int pos = name.First("|");
