@@ -146,6 +146,97 @@ bool HSSPotential(int A, int Z, double E){
   return true;
 }
 
+bool BojowaldPotential(int A, int Z, double E){
+  // d + A(Z)
+  // 50 < E < 80 or 25, 40 MeV/u
+  // 27 < A < 208
+  // http://dx.doi.org/10.1103/PhysRevC.38.1153
+  
+  //if( !(27 <= A &&  A <= 208 ) ) return false;
+  //if( E > 80 || E < 27) return false;
+
+  int N = A-Z;
+  double A3 = pow(A, 1./3.);
+  
+  double VIcond = 0.132 * (E - 45.);
+
+  v  = 81.33 - 0.24 * E + 1.43 * Z / A3;
+  r0 = 1.18;
+  a  = 0.636 + 0.035 * A3;
+
+  vi  = VIcond > 0 ? VIcond : 0 ;
+  ri0 = 1.27;
+  ai  = 0.768 + 0.021 * A3;
+
+  vsi  = 7.8 + 1.04 * A3 - 0.712 * vi;
+  rsi0 = 1.27;
+  asi  = 0.768 + 0.021 * A3;
+
+  vso  = 6.0;
+  rso0 = 0.78 + 0.038 * A3;
+  aso  = 0.78 + 0.038 * A3;
+
+  vsoi  = 0;
+  rsoi0 = 0;
+  asoi  = 0;
+
+  rc0 = 1.3;
+  
+  PrintPotential();
+
+  return true;
+}
+
+bool DaehnickPotential(int A, int Z, double E){
+  // d + A(Z)
+  // 11.8 < E < 80 or 5.4, 40 MeV/u
+  // 27 < A < 238
+  // http://dx.doi.org/10.1103/PhysRevC.21.2253
+  
+  //if( !(27 <= A &&  A <= 238 ) ) return false;
+  //if( E > 80 || E < 11.8) return false;
+
+  int N = A-Z;
+  double A3 = pow(A, 1./3.);
+  
+  double beta = -1.* pow(E/100.,2); 
+  
+  double MU1 = exp(-1*pow((8. - N)/2.,2));
+  double MU2 = exp(-1*pow((20. - N)/2.,2));
+  double MU3 = exp(-1*pow((28. - N)/2.,2));
+  double MU4 = exp(-1*pow((50. - N)/2.,2));
+  double MU5 = exp(-1*pow((82. - N)/2.,2));
+  double MU6 = exp(-1*pow((126. - N)/2.,2));
+  
+  double MU = MU1 + MU2 + MU3 + MU4 + MU5 + MU6;
+  
+  v  = 88. - 0.283 * E + 0.88 * Z / A3;
+  r0 = 1.17;
+  a  = 0.717 + 0.0012 * E;
+
+  vi  = (12. + 0.031 * E )*(1 - exp(beta));
+  ri0 = 1.376 - 0.01 * sqrt(E);
+  ai  = 0.52 + 0.07 * A3  - 0.04 * MU;
+
+  vsi  = (12. + 0.031 * E) * exp(beta);
+  rsi0 = ri0;
+  asi  = ai;
+
+  vso  = 7.2 - 0.032 * E;
+  rso0 = 1.07;
+  aso  = 0.66;
+
+  vsoi  = 0;
+  rsoi0 = 0;
+  asoi  = 0;
+
+  rc0 = 1.3;
+  
+  PrintPotential();
+
+  return true;
+}
+
 
 //======================== proton 
 bool KoningPotential(int A, int Z, double E){
@@ -382,7 +473,7 @@ bool PereyPotential(int A, int Z, double E){
 
   rc0 = 1.25;
   
-  PrintPotential();
+  //PrintPotential();
 
   return true;
 }
@@ -395,6 +486,8 @@ bool CallPotential(string potName, int A, int Z, double E){
 
   if( potName == "A") okFlag = AnCaiPotential(A, Z, E);
   if( potName == "H") okFlag = HSSPotential(A, Z, E);
+  if( potName == "B") okFlag = BojowaldPotential(A, Z, E);
+  if( potName == "D") okFlag = DaehnickPotential(A, Z, E);
   
   if( potName == "K") okFlag = KoningPotential(A, Z, E);
   if( potName == "V") okFlag = VarnerPotential(A, Z, E);

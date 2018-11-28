@@ -7,8 +7,8 @@
 #========================= deuteron
 # A = An, Cai, 2006                  |         E < 183 | 12 < A < 238 (http://dx.doi.org/10.1103/PhysRevC.73.054605)
 # H = Han, Shi, Shen, 2006           |         E < 200 | 12 < A < 209 (http://dx.doi.org/10.1103/PhysRevC.74.044615)
-# B = Bojowald et al., 1988          |    50 < E < 80  | 27 < A < 208 (http://dx.doi.org/10.1103/PhysRevC.38.1153)    // not impletmented yet
-# D = Daehnick, Childs, Vrcelj, 1980 |  11.8 < E < 80  | 27 < A < 238 (REL) (http://dx.doi.org/10.1103/PhysRevC.21.2253) // not impletmented yet
+# B = Bojowald et al., 1988          |    50 < E < 80  | 27 < A < 208 (http://dx.doi.org/10.1103/PhysRevC.38.1153)
+# D = Daehnick, Childs, Vrcelj, 1980 |  11.8 < E < 80  | 27 < A < 238 (REL) (http://dx.doi.org/10.1103/PhysRevC.21.2253)
 # C = Daehnick, Childs, Vrcelj, 1980 |  11.8 < E < 80  | 27 < A < 238 (NON-REL) (http://dx.doi.org/10.1103/PhysRevC.21.2253) // not impletmented yet
 # L = Lohr and Haeberli, 1974        |     9 < E < 13  | 40 < A       (http://dx.doi.org/10.1016/0375-9474(74)90627-7) // not impletmented yet
 # Q = Perey and Perey, 1963          |    12 < E < 25  | 40 < A       (http://dx.doi.org/10.1016/0370-1573(91)90039-O) // not impletmented yet
@@ -20,6 +20,19 @@
 # P = Perey, 1963                    |         E < 20  | 30 < A < 100             (http://dx/doi.org/10.1016/0092-640X(76)90007-3)
 #=======================================================================
 #reaction   gs-spin orbital  parity   Ex  ELab      Potentials
-206Hg(d,p)207Hg   0   1g9/2  +1  6.000  7.39MeV/u   AK
-206Hg(d,p)207Hg   0   3s1/2  +1  6.000  7.39MeV/u   HP
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   AK
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   AV
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   AM
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   AG
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   AP
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   HK
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   HV
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   HM
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   HG
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   HP
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   BK
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   BV
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   BM
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   BG
+206Hg(d,p)207Hg   0   1g9/2  +1  0.000  7.39MeV/u   BP
 
