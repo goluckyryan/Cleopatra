@@ -19,7 +19,7 @@
 #include <fstream>
 #include <stdlib.h>
 #include <TApplication.h>
-#include "PlotTGraphTObjectArray.h"
+#include "PlotTGraphTObjArray.h"
 using namespace std;
 
 
@@ -30,7 +30,7 @@ int main (int argc, char *argv[]) {
   printf("=================================================================\n");
 
   if(argc != 2) { 
-    printf("Usage: ./PlotResultInROOT root_file\n");
+    printf("Usage: ./PlotTGraphTObjArray root_file\n");
     exit(0); 
   }else{
     printf("From file : %s \n", argv[1]);
@@ -41,7 +41,7 @@ int main (int argc, char *argv[]) {
   
   TApplication app ("app", &argc, argv);
 
-  PlotTGraphTObjectArray(readFile);
+  PlotTGraphTObjArray(readFile);
   
   app.Run(); //anything after this line is not running
   

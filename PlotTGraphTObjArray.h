@@ -25,7 +25,7 @@
 #include <TH1F.h>
 #include <TLegend.h>
 
-void PlotTGraphTObjectArray(TString rootFileName){
+void PlotTGraphTObjArray(TString rootFileName){
   
   TFile * file = new TFile(rootFileName, "READ");
   

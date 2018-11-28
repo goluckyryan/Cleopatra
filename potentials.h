@@ -182,7 +182,7 @@ bool BojowaldPotential(int A, int Z, double E){
 
   rc0 = 1.3;
   
-  PrintPotential();
+  //PrintPotential();
 
   return true;
 }
@@ -232,7 +232,7 @@ bool DaehnickPotential(int A, int Z, double E){
 
   rc0 = 1.3;
   
-  PrintPotential();
+  //PrintPotential();
 
   return true;
 }
@@ -353,7 +353,7 @@ bool VarnerPotential(int A, int Z, double E){
 
   rc0 = Rc/A3;
   
-  PrintPotential();
+  //PrintPotential();
 
   return true;
 }

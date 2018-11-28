@@ -87,12 +87,12 @@ fi;
 
 if [ ${PlotResult} -eq 1 ] ; then 
   #===== Plot the result from the *.root
-  #./PlotTGraphTObjectArray ${rootfile}
+  #./PlotTGraphTObjArray ${rootfile}
   #--- other way within ROOT
   echo "================================================================="
   echo "=====   Plot Result from ${rootfile}"
   echo "================================================================="
-  com='PlotTGraphTObjectArray.h("'${rootfile}'")'
+  com='PlotTGraphTObjArray.h("'${rootfile}'")'
   echo ${com}
   root -l ${com}
 fi;

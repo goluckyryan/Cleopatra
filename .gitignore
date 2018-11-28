@@ -9,6 +9,7 @@ Cleopatra
 InFileCreator
 ptolemy
 ExtractXSec
+PlotTGraphTObjArray
 
 #≈exculde
 !ptolemy_manual.pdf

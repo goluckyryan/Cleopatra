@@ -40,7 +40,7 @@
 #include "InFileCreator.h"
 #include "ExtractXSec.h"
 #include <TApplication.h>
-#include "PlotTGraphTObjectArray.h"
+#include "PlotTGraphTObjArray.h"
 
 using namespace std;
 
@@ -96,7 +96,7 @@ int main (int argc, char *argv[]) { //TODO add angle range
   string rootFileName = argv[1];
   rootFileName += ".root";
   TApplication app ("app", &argc, argv);
-  PlotTGraphTObjectArray(rootFileName);
+  PlotTGraphTObjArray(rootFileName);
   app.Run(); //nothing run after
   return 0;
 } 
