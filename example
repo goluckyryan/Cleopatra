@@ -14,13 +14,12 @@
 # Q = Perey and Perey, 1963          |    12 < E < 25  | 40 < A       (http://dx.doi.org/10.1016/0370-1573(91)90039-O) // not impletmented yet
 #========================= proton
 # K = Koning and Delaroche, 2009     | 0.001 < E < 200 | 24 < A < 209 | Iso. Dep. (http://dx.doi.org/10.1016/S0375-9474(02)01321-0)
-# V = Varner et al., (CH89), 1991    |    16 < E < 65  |  4 < A < 209             (http://dx.doi.org/10.1016/0370-1573(91)90039-O)   // not impletmented yet
-# M = Menet et al., 1971             |   30 <  E < 60  | 40 < A                   (http://dx/doi.org/10.1016/0092-640X(76)90007-3)   // not impletmented yet
-# G = Becchetti and Greenlees, 1969  |         E < 50  | 40 < A                   (http://dx.doi.org/10.1103/PhysRev.182.1190)       // not impletmented yet
-# P = Perey, 1963                    |         E < 20  | 30 < A < 100             (http://dx/doi.org/10.1016/0092-640X(76)90007-3)   // not impletmented yet
+# V = Varner et al., (CH89), 1991    |    16 < E < 65  |  4 < A < 209             (http://dx.doi.org/10.1016/0370-1573(91)90039-O)
+# M = Menet et al., 1971             |   30 <  E < 60  | 40 < A                   (http://dx/doi.org/10.1016/0092-640X(76)90007-3)
+# G = Becchetti and Greenlees, 1969  |         E < 50  | 40 < A                   (http://dx.doi.org/10.1103/PhysRev.182.1190)
+# P = Perey, 1963                    |         E < 20  | 30 < A < 100             (http://dx/doi.org/10.1016/0092-640X(76)90007-3)
 #=======================================================================
 #reaction   gs-spin orbital  parity   Ex  ELab      Potentials
 206Hg(d,p)207Hg   0   1g9/2  +1  6.000  7.39MeV/u   AK
-206Hg(d,p)207Hg   0   3s1/2  +1  6.000  7.39MeV/u   AK
-206Hg(d,p)207Hg   0   2d5/2  +1  6.000  7.39MeV/u   AK
+206Hg(d,p)207Hg   0   3s1/2  +1  6.000  7.39MeV/u   HP
 
