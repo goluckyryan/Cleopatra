@@ -1,6 +1,6 @@
 CC=g++
 
-all: Cleopatra InFileCreator ExtractXSec PlotTGraphTObjArray
+all: Cleopatra InFileCreator ExtractXSec PlotTGraphTObjArray FindThetaCM
 
 Cleopatra: Cleopatra.C Isotope.h constant.h potentials.h InFileCreator.h ExtractXSec.h PlotTGraphTObjArray.h
 	$(CC) Cleopatra.C -o Cleopatra `root-config --cflags --glibs`
@@ -13,3 +13,6 @@ ExtractXSec: ExtractXSec.C ExtractXSec.h
 
 PlotTGraphTObjArray: PlotTGraphTObjArray.C PlotTGraphTObjArray.h
 	$(CC) PlotTGraphTObjArray.C -o PlotTGraphTObjArray `root-config --cflags --glibs`
+
+FindThetaCM: FindThetaCM.C FindThetaCM.h HELIOS_LIB.h Isotope.h constant.h
+	$(CC) FindThetaCM.C -o FindThetaCM `root-config --cflags --glibs`
